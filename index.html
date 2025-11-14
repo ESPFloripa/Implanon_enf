@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <!-- Corrigido de UTF-R para UTF-8 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Implante Etonogestrel - ESP Florianópolis</title>
+    <!-- Carrega o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carrega a fonte Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Define a fonte padrão */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Cor de fundo alterada para rosa claro */
+            background-color: #fdf2f8; /* bg-pink-50 */
+        }
+        
+        /* Estilo para o link de navegação ativo (usado pelo JS) */
+        .nav-active {
+            /* Cores alteradas para rosa */
+            background-color: #fce7f3; /* bg-pink-100 */
+            color: #9d174d; /* text-pink-800 */
+            font-weight: 600;
+        }
+
+        /* Oculta o painel da sanfona por padrão */
+        .accordion-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        /* Mostra o painel quando a classe 'open' é adicionada */
+        .accordion-panel.open {
+            max-height: 10000px; /* Um valor alto para permitir qualquer conteúdo */
+            transition: max-height 0.5s ease-in;
+        }
+        
+        /* Gira o ícone de seta */
+        .accordion-button.open .accordion-arrow {
+            transform: rotate(180deg);
+        }
+        
+        /* Estilos da barra de rolagem */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        /* Cor da barra de rolagem alterada para rosa */
+        ::-webkit-scrollbar-thumb {
+            background: #fbcfe8; /* pink-200 */
+            border-radius: 10px;
+        }
+        /* Cor da barra de rolagem (hover) alterada para rosa */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f9a8d4; /* pink-300 */
+        }
+        
+        /* Estilos do Modal */
+        .modal {
+            display: none; /* Oculto por padrão */
+        }
+        .modal.open {
+            display: flex; /* Exibido quando aberto */
+        }
+
+        /* Classe para o Card Virado */
+        .is-flipped {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<!-- Cor de fundo alterada para rosa claro -->
+<body class="bg-pink-50">
+
+    <div class="flex min-h-screen">
+        <!-- Botão do Menu Mobile -->
+        <button id="menu-toggle" class="lg:hidden fixed top-4 left-4 z-30 p-2 bg-white rounded-md shadow-md text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+
+        <!-- Navegação Lateral -->
+        <nav id="sidebar" class="w-64 bg-white shadow-lg fixed top-0 left-0 h-full z-20 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+            <div class="p-6">
+                <!-- Cor do título do menu alterada para rosa -->
+                <h2 class="text-xl font-bold text-pink-700">Menu do Curso</h2>
+            </div>
+            <ul id="nav-menu" class="space-y-1 p-4">
+                <!-- Cor do hover dos links alterada para rosa -->
+                <li><a href="#sessao1" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Sessão 1: Introdução</a></li>
+                <li><a href="#sessao2" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Sessão 2: Informações</a></li>
+                <li><a href="#sessao3" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Sessão 3: Efeitos Adversos</a></li>
+                <li><a href="#sessao4" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Sessão 4: Quando Iniciar</a></li>
+                <li><a href="#sessao5" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Sessão 5: Contraindicações</a></li>
+                <li><a href="#sessao6" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Sessão 6: Interações</a></li>
+                <li><a href="#sessao7" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Sessão 7: Inserção</a></li>
+                <li><a href="#sessao8" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Sessão 8: Intercorrências</a></li>
+                <li><a href="#sessao9" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Sessão 9: Retirada</a></li>
+                <li><a href="#sessao10" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Sessão 10: Leitura Complementar e Referências</a></li>
+                <li><a href="#teste-aproveitamento" class="nav-link block px-4 py-2 rounded-md text-gray-700 hover:bg-pink-50">Teste de Aproveitamento</a></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main id="main-content" class="flex-1 lg:ml-64 p-6 md:p-10 transition-all duration-300">
+            <!-- Cabeçalho do Curso -->
+            <header class="mb-8 rounded-lg overflow-hidden shadow-lg bg-cover bg-center" style="background-image: url('https://i.imgur.com/u2T4Hwm.jpeg');">
+                <!-- Overlay e container de conteúdo -->
+                <!-- Cor do overlay alterada para rosa escuro -->
+                <div class="p-8 bg-pink-950/60">
+                    <h1 class="text-3xl md:text-4xl font-bold text-white">Implante Contraceptivo Subdérmico de Etonogestrel</h1>
+                    <p class="mt-2 text-lg text-gray-200">Curso EAD para Enfermagem - Escola de Saúde Pública de Florianópolis</p>
+                    
+                    <!-- Wrapper para os botões do Curso Livre -->
+                    <div class="mt-4 flex flex-wrap gap-4">
+                        
+                        <!-- Botão 1: Instruções (Modal) - Estilo atualizado -->
+                        <button id="openModalBtn" class="flex items-center justify-center text-lg text-white bg-white/20 py-2 px-4 rounded-full hover:bg-white/30 transition-colors">
+                            <!-- Ícone SVG de chapéu de formatura -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                             <path fill-rule="evenodd" d="M6.173 3.69l-2.28 1.14a1 1 0 00-.58 1.11M16.69 4.83a1 1 0 00-.58-1.11l-2.28-1.14a1 1 0 00-1.14 0l-6 3a1 1 0 000 1.79l6 3a1 1 0 001.14 0l2.28-1.14a1 1 0 00.58-1.11V4.83zM10 12.58l-6-3V13a1 1 0 00.42.8l5.28 2.64a1 1 0 001.1 0l5.28-2.64a1 1 0 00.42-.8v-3.42l-6 3z" clip-rule="evenodd"></path>
+                             <path d="M10 15.58l-6-3v2.11a1 1 0 00.42.8l5.28 2.64a1 1 0 001.1 0l5.28-2.64a1 1 0 00.42-.8v-2.11l-6 3z"></path>
+                            </svg>
+                            Curso Livre - Instruções
+                        </button>
+    
+                        <!-- Botão 2: Inscrição (Link Externo) - Estilo atualizado -->
+                        <a href="https://espfloripa.github.io/cursoslivres/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center text-lg text-white bg-white/20 py-2 px-4 rounded-full hover:bg-white/30 transition-colors">
+                            <!-- Ícone SVG de Lápis (para "Inscrição") -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                            </svg>
+                            Curso Livre - Inscrição
+                        </a>
+    
+                    </div>
+                </div>
+            </header>
+
+            <!-- Container da Sanfona -->
+            <div id="accordion-container" class="space-y-4">
+
+                <!-- Sessão 1: Introdução -->
+                <div id="sessao1" class="accordion-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-left">
+                        <!-- Cor do título da sessão alterada para rosa -->
+                        <h2 class="text-2xl font-semibold text-pink-800">Sessão 1 - Introdução</h2>
+                        <!-- Cor do ícone de seta alterada para rosa -->
+                        <svg class="accordion-arrow w-6 h-6 text-pink-600 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="p-6 border-t border-gray-200 text-gray-700 leading-relaxed space-y-4 break-words">
+                            <p><strong>Assista ao vídeo:</strong></p>
+                            <!-- Bloco do vídeo atualizado -->
+                            <div class="aspect-video w-full max-w-3xl mx-auto mb-6 rounded-lg overflow-hidden shadow">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/yKY57bg3hA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            
+                            <!-- Card que Vira -->
+                            <div class="w-full max-w-xl mx-auto [perspective:1000px]" id="flip-card-container">
+                                <div id="flip-card-inner" class="relative [transform-style:preserve-3d] transition-transform duration-700 aspect-video">
+                                    
+                                    <!-- Frente (Imagem) -->
+                                    <div class="absolute w-full h-full [backface-visibility:hidden] rounded-lg shadow-lg overflow-hidden cursor-pointer">
+                                        <img src="https://i.imgur.com/576kPK7.png" alt="Implante contraceptivo" class="w-full h-full object-cover">
+                                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                                            <p class="text-white font-semibold text-lg">Clique para ver os detalhes</p>
+                                        </div>
+                                    </div>
+                        
+                                    <!-- Verso (Texto) -->
+                                    <div class="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white rounded-lg shadow-lg p-4 md:p-6 flex items-center justify-center cursor-pointer">
+                                        <div class="overflow-y-auto h-full">
+                                            <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+                                                O implante de etonogestrel é um contraceptivo progestogênico de haste única, inserido sob a pele na face interna do braço não dominante, para contracepção reversível de longa duração em mulheres, por até 3 anos, comercializado como o nome Nexplanon/Implanon NXT®. Possui 40 mm de comprimento e 2 mm de diâmetro, contém 68 mg de etonogestrel incorporados em um núcleo de acetato de etileno-vinila e é radiopaco (contendo 15 mg de sulfato de bário) para identificação por ultrassom ou raio-X, caso não seja facilmente palpado.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fim do Card que Vira -->
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sessão 2: Informações importantes -->
+                <div id="sessao2" class="accordion-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-left">
+                        <h2 class="text-2xl font-semibold text-pink-800">Sessão 2 – Informações importantes</h2>
+                        <svg class="accordion-arrow w-6 h-6 text-pink-600 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="p-6 border-t border-gray-200 text-gray-700 leading-relaxed space-y-4 break-words">
+                            <p>O etonogestrel é um progestagênio sintético (derivado do hormônio natural progesterona) e seu principal mecanismo de ação é a prevenção da ovulação por meio da supressão do eixo hipotálamo-hipófise-ovariano.</p>
+                            <p>Os mecanismos de ação secundários incluem o espessamento do muco cervical para impedir a motilidade dos espermatozoides e o afinamento do revestimento endometrial para impedir a implantação.</p>
+                            <p>A ovulação pode ser suprimida logo após a implantação do dispositivo devido ao aumento dos níveis séricos de etonogestrel (ENG). Os níveis séricos de ENG atingem níveis que suprimem a ovulação (cerca de > 90 pg/mL) em 24 horas após a inserção. As concentrações séricas máximas são atingidas em 2 semanas e diminuem rapidamente nos primeiros meses. Relata-se que as concentrações séricas reduzem-se para uma média de 156 pg/mL após 3 anos.</p>
+                            <p>Em relação aos benefícios não contraceptivos, os implantes de etonogestrel podem reduzir a dor pélvica associada à dismenorreia e à endometriose.</p>
+                            <p>Os métodos contraceptivos reversíveis de longa duração, incluindo os implantes, são considerados o método contraceptivo reversível mais eficaz.</p>
+                            <p>A gravidez ocorre em cerca de 0,05% das pacientes no primeiro ano de uso (5 a cada 10.000 usuárias). A falha do método geralmente é causada por inserção incorreta, inserção em momento inadequado , não utilização de um método contraceptivo de reserva por 7 dias e/ou interações medicamentosas , including o uso de medicamentos indutores enzimáticos.</p>
+                            <p>Caso ocorra gravidez, considere a remoção do implante na paciente que decidir prosseguir com a gestação. O implante pode ser mantido se a gravidez for interrompida e a paciente desejar continuar utilizando o método contraceptivo.</p>
+                            <p>O implante de etonogestrel é um dos contraceptivos mais eficazes disponíveis, com taxas de falha menores do que as cirurgias contraceptivas permanentes, mas sem os riscos de uma cirurgia invasiva.</p>
+                            <!-- Cores do placeholder alteradas para rosa -->
+                            <img src="https://i.imgur.com/8CDDjiu.png" alt="Tabela de taxa de falha de anticoncepcionais" class="mx-auto rounded-lg shadow-sm w-full max-w-2xl" onerror="this.src='https://placehold.co/800x600/fdf2f8/9d174d?text=Imagem+N%C3%A3o+Carregada';">
+                            <p class="text-sm italic text-center">Taxa de falha de anticoncepcionais calculado pelo Índice de Pearl - número de gravidez por cada 100 mulheres, no primeiro ano de uso. Trussel, 2011.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sessão 3: Efeitos Adversos -->
+                <div id="sessao3" class="accordion-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-left">
+                        <h2 class="text-2xl font-semibold text-pink-800">Sessão 3 - Efeitos Adversos</h2>
+                        <svg class="accordion-arrow w-6 h-6 text-pink-600 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="p-6 border-t border-gray-200 text-gray-700 leading-relaxed space-y-4 break-words">
+                            <p><strong>Alteração no padrão de sangramento</strong> – Mulheres que utilizam o implante de etonogestrel, assim como de qualquer método contraceptivo contendo só progestagênio, apresentam a mudança do padrão de sangramento como principal efeito adverso, que é a principal causa de desistência do método.</p>
+                            <p>Há melhor aceitação do sangramento que ocorre na vigência do implante se houver aconselhamento adequado pelo médico e esclarecimento de que o padrão de sangramento com os implantes não produz necessariamente amenorreia.</p>
+                            <p>Os padrões de sangramento induzidos por métodos contraceptivos descritos pela OMS estão apresentados na figura abaixo. Que leva em conta o número de dias e a intensidade de sangramento vaginal ou apenas escape (spotting – sangramento de pequena quantidade com uso de, no máximo, um absorvente ou tampão por dia) pelo período de 90 dias.</p>
+                            <!-- Cores do placeholder alteradas para rosa -->
+                            <img src="https://i.imgur.com/5lUuEY8.png" alt="Gráfico de episódios de sangramento" class="mx-auto rounded-lg shadow-sm" onerror="this.src='https://placehold.co/600x600/fdf2f8/9d174d?text=Imagem+N%C3%A3o+Carregada';">
+                            <p class="text-sm italic text-center">Fonte: Adaptado de Belsey EM, Machin D, d’Arcangues C. The analysis of vaginal bleeding patterns induced by fertility regulating methods. World Health Organization Special Programme of Research, Development and Research Training in Human Reproduction. Contraception. 1986;34:253-60.(99)</p>
+                            <p>Consideram-se padrão de sangramento favorável as pacientes que apresentam amenorreia, sangramento infrequente e sangramento regular, ao passo que os sangramentos frequente e prolongado são considerados desfavoráveis. A grande maioria das mulheres apresentará padrão favorável de sangramento, somente entre 20% e 25% delas apresentarão padrão desfavorável (sangramento frequente ou prolongado).</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>É mais provável que ocorram alterações no padrão de sangramento nos primeiros 3 meses após a inserção.</li>
+                                <li>Pacientes com padrões de sangramento favoráveis ​​nos primeiros 3 meses provavelmente continuarão com o mesmo padrão por pelo menos 2 anos.</li>
+                                <li>Pacientes com padrões de sangramento desfavoráveis ​​nos primeiros 3 meses podem ter 50% de chance de melhora nos próximos 3 a 6 meses.</li>
+                            </ul>
+                            <p>Após a exclusão de outras causas de sangramento e caso o padrão de sangramento se mantenha desfavorável após seis meses (cerca de 50% das mulheres com padrão desfavorável têm chance de melhora do padrão de sangramento nesse período), usuárias de implante de etonogestrel podem receber um período de teste de 3 meses com o uso adicional de um contraceptivo oral combinado (30 mcg de etinilestradiol + 150 mcg de LNG por um a três ciclos, com ou sem pausa entre as cartelas) ou outras abordagens que incluem:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Ácido tranexâmico 500 a 1.000 mg de oito em oito horas por cinco a sete dias (A). O tratamento pode ser repetido quantas vezes forem necessárias, porém não deve ultrapassar sete dias cada um deles;</li>
+                                <li>Doxiciclina 100 mg de 12 em 12 horas por cinco a sete dias (C). A ação aqui é de diminuição de metaloproteinases, e não a ação antibiótica conhecida; AINEs (C). Os mais estudados foram:
+                                    <ul class="list-circle list-inside ml-6">
+                                        <li>Ibuprofeno: 400 mg de oito em oito horas por cinco dias;</li>
+                                        <li>Ácido mefenâmico: 500mg de oito em oito horas por cinco dias;</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p><strong>Alterações no peso, humor, libido e cefaleia</strong> foram relatadas com o uso de implantes contendo apenas progestina, sem evidências comparativas que estabeleçam uma relação de causa e efeito. Ganho de peso foi relatado em até 12% dos indivíduos e cefaleia em 9% a 31,3%.</p>
+                            <p><strong>Surgimento de acne</strong> foram relatados during o uso de implantes contendo apenas progestina (surgimento ou piora relatados em cerca de 8% a 17%).</p>
+                            <p>A descontinuação do implante foi relatada duevido aos seguintes motivos:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Sangramento irregular em 10% a 20% dos casos.</li>
+                                <li>Outros efeitos adversos, including: Alterações de humor em 2,3%, como depressão em 1%, Aumento de peso em 2,3%, Acne em 1,3% a 4%, Dor de cabeça em 1,6% dos casos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sessão 4: Quando Iniciar -->
+                <div id="sessao4" class="accordion-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-left">
+                        <h2 class="text-2xl font-semibold text-pink-800">Sessão 4 - Quando iniciar o método</h2>
+                        <svg class="accordion-arrow w-6 h-6 text-pink-600 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="p-6 border-t border-gray-200 text-gray-700 leading-relaxed space-y-4 break-words">
+                            <p>Para mulheres saudáveis, não são indicados exame físico ou exames laboratoriais antes da inserção de um implante de etonogestrel. Embora algumas condições médicas representem contraindicações ao uso de hormônios, a baixa prevalência dessas condições em mulheres assintomáticas em idade reprodutiva não justifica a triagem dessas condições por meio de exame físico ou exames laboratoriais para o início seguro de implantes.</p>
+                            <p>Implantes podem ser inseridos a qualquer momento during o ciclo, desde que a gravidez seja descartada.</p>
+                            <p>A possibilidade de gravidez inicial geralmente pode ser avaliada pela análise do histórico menstrual, sexual e contraceptivo da mulher. A ausência de gravidez pode ser inferida se a paciente atender a qualquer um dos critérios: a paciente não teve relações sexuais desde a última menstruação normal; tem utilizado um método contraceptivo confiável de forma correta e consistente; encontra-se dentro do período de 7 dias a partir do primeiro dia de sangramento menstrual; encontra-se dentro do período de 4 semanas pós-parto (para pacientes que não estejam amamentando); encontra-se nos primeiros 7 dias após um aborto espontâneo ou provocado; está em período de amamentação exclusiva ou quase exclusiva, apresenta amenorreia e está no período pós-parto há menos de 6 meses.</p>
+                            <p>Um teste de gravidez, realizado pelo menos duas semanas após a última relação sexual, só é necessário em caso de dúvida.</p>
+                            <p>Não há evidências de que o implante de etonogestrel ou outros contraceptivos hormonais tenham causado desenvolvimento fetal anormal. A maioria das poucas gestações relatadas entre usuárias do implante de etonogestrel já estava presente antes da inserção.</p>
+                            <p>Os implantes podem ser inseridos entre o 1º e o 5º dia do ciclo menstrual, sem necessidade de contracepção adicional. No entanto, para implantes inseridos em qualquer other momento do ciclo menstrual, recomenda-se o uso de contracepção não hormonal adicional during os 7 dias seguintes à inserção.</p>
+                            <p>Para pacientes que retornam em até 3 anos após a data de inserção para substituição do implante, os seguintes procedimentos não são necessários: Abstinência de relações sexuais antes da remoção, utilização de proteção contraceptiva adicional, utilização de contracepção de emergência caso tenha ocorrido relação sexual. Todas as pacientes devem usar preservativo during 7 dias após a inserção do implante.</p>
+                            
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Inserção pós-parto:</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Se um implante de etonogestrel for inserido até o 21º dia pós-parto (including a inserção imediata pós-parto), não são necessárias precauções contraceptivas adicionais.</li>
+                                <li>Em pacientes sem amenorreia lactacional, o uso de preservativo é recomendado por 7 dias se a inserção do implante ocorrer a partir do 21º dia pós-parto.</li>
+                                <li>Se a última relação sexual desprotegida ocorreu há ≥ 21 dias, um teste de gravidez deve ser realizado antes da inserção do implante e a contracepção de emergência não é necessária.</li>
+                                <li>Se a última relação sexual desprotegida ocorreu há menos de 21 dias, um teste de gravidez deve ser realizado antes da inserção do implante e considerado 21 dias após a relação sexual desprotegida. A contracepção de emergência deve ser considerada.</li>
+                                <li>Em pacientes que estão amamentando: estudos observacionais não demonstram evidências que sustentem um risco aumentado de exposição ao etonogestrel e/ou comprometimento da produção de leite.</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Inserção após aborto espontâneo ou induzido:</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Os implantes contraceptivos contendo apenas progestina podem ser inseridos imediatamente após um aborto induzido ou espontâneo no primeiro trimestre e no segundo trimestre.</li>
+                                <li>Não é necessário nenhum método contraceptivo adicional se o dispositivo for inserido até 5 dias após o aborto.</li>
+                                <li>Se o implante tiver sido inserido há mais de 5 dias, deve-se usar preservativo por 7 dias.</li>
+                            </ul>
+                            
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Em relação ao atendimento de adolescentes:</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Deve-se garantir o atendimento de adolescentes nos serviços de saúde, mesmo quando desacompanhados por seus responsáveis legais (ou acompanhados por pessoa de sua escolha) - ter um acompanhante nos atendimentos de saúde é um direito, contudo não constitui uma impressibilidade.</li>
+                                <li>Ressalta-se ainda a não obrigatoriedade da autorização verbal ou escrita dos responsáveis pelo adolescente para a inserção do implante subdérmico ou prescrição de qualquer other método contraceptivo.</li>
+                                <li>O sigilo e a confidencialidade permanecem obrigatórios no caso de informações compartilhadas pelas(os) adolescentes during o atendimento, exceto em situações de risco à vida ou à integridade física ou psicológica da(o) adolescente e/ou de terceiros, quando a quebra do sigilo se faz necessária para a sua proteção.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sessão 5: Contraindicações -->
+                <div id="sessao5" class="accordion-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-left">
+                        <h2 class="text-2xl font-semibold text-pink-800">Sessão 5 - Contraindicações</h2>
+                        <svg class="accordion-arrow w-6 h-6 text-pink-600 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="p-6 border-t border-gray-200 text-gray-700 leading-relaxed space-y-4 break-words">
+                            <h3 class="text-xl font-semibold text-gray-800">Contraindicações Absolutas (Categoria 4)</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Gravidez</li>
+                                <li>Câncer de mama atual e demais neoplasias sensíveis a esteroides sexuais (o histórico familiar não contraindica)</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Contraindicações Relativas (Categoria 3)</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Sangramento genital irregular não investigado, quando não for possível afastar uma gestação</li>
+                                <li>Tromboembolismo venoso agudo na ausência de anticoagulação</li>
+                                <li>Infarto agudo do miocárdio ou acidente vascular cerebral em vigência de uso do método. Histórico destas condições é classificado como categoria 2</li>
+                                <li>Enxaqueca com aura during o uso do método. Se for prévia, não há contraindicação</li>
+                                <li>Adenoma hepatocelular, adenocarcinoma hepatocelular, cirrose hepática severa</li>
+                                <li>Câncer de mama tratado há mais de cinco (5) anos</li>
+                                <li>Lúpus eritematoso sistêmico com positividade para anticorpos antifosfolipídeos</li>
+                                <li>Hipersensibilidade ao princípio ativo ou a qualquer other componente do implante subdérmico</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sessão 6: Interações medicamentosas -->
+                <div id="sessao6" class="accordion-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-left">
+                        <h2 class="text-2xl font-semibold text-pink-800">Sessão 6 - Interações medicamentosas</h2>
+                        <svg class="accordion-arrow w-6 h-6 text-pink-600 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="p-6 border-t border-gray-200 text-gray-700 leading-relaxed space-y-4 break-words">
+                            <p>A eficácia contraceptiva de um implante de etonogestrel pode ser reduzida during o uso de medicamentos indutores enzimáticos e por 28 dias após a interrupção do uso desses medicamentos.</p>
+                            <p>Informe as pacientes e ofereça um método contraceptivo alternativo confiável, caso seja clinicamente elegível, como um dispositivo intrauterino ou acetato de medroxiprogesterona de depósito intramuscular ou subcutânea.</p>
+                            <p>Caso a paciente opte por utilizar o implante de etonogestrel como método contraceptivo during o uso de um medicamento indutor enzimático, o uso de preservativo é obrigatório em todos os momentos.</p>
+                            <p>Exemplos de medicamentos que podem induzir enzimas hepáticas (including o citocromo P450 3A4) incluem:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Medicamentos antiepilépticos, tais como: Carbamazepina, Oxcarbazepina, Fenitoína, Barbitúricos (como o fenobarbital ), Rufinamida, Topiramato</li>
+                                <li>Medicamentos antituberculosos, como rifampicina e rifabutina</li>
+                                <li>Medicamentos antirretrovirais, como ritonavir e efavirenz. Se a paciente estiver em uso de Efavirenz, avaliar primeiro a troca por Dolutegravir. Se não for possível realizar a troca, ofertar outro método contraceptivo.</li>
+                                <li>Griseofulvina (medicamento antifúngico)</li>
+                                <li>Aprepitante (antiemético)</li>
+                                <li>Erva de São João (suplemento fitoterápico)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sessão 7: Procedimento de Inserção -->
+                <div id="sessao7" class="accordion-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-left">
+                        <h2 class="text-2xl font-semibold text-pink-800">Sessão 7 - Procedimento de Inserção</h2>
+                        <svg class="accordion-arrow w-6 h-6 text-pink-600 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="p-6 border-t border-gray-200 text-gray-700 leading-relaxed space-y-4 break-words">
+                            <p><strong>Assista ao vídeo de inserção:</strong></p>
+                            <!-- Bloco do vídeo atualizado -->
+                            <div class="aspect-video w-full max-w-3xl mx-auto mb-6 rounded-lg overflow-hidden shadow">
+                                <iframe class="w-full h-full" src="https://drive.google.com/file/d/183VNyi8QWd0I0XhdERvpqRIxFhrxPtBq/preview" title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            
+                            <p>Antes de iniciar, leia em conjunto e solicite a assinatura do Termo de Consentimento Livre e Esclarecido (para todas as faixas etárias) disponível no link abaixo:</p>
+                            <!-- Botão do Termo de Consentimento - Cor alterada para rosa -->
+                            <a href="https://docs.google.com/document/d/14upTvJ0skp2VBiZeVYxULOxiIZiGlP1R/edit?usp=sharing&ouid=110410574929128285229&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-pink-700 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                                Termo de Consentimento
+                            </a>
+
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Materiais necessários para realizar a inserção:</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Luvas de procedimento;</li>
+                                <li>Antisséptico (clorexidina alcoólica 0,5%, álcool 70% ou iodopovidona tópico 10%);</li>
+                                <li>Gaze estéril;</li>
+                                <li>Seringa de 3ml;</li>
+                                <li>Agulha para aspiração 40x12mm;</li>
+                                <li>Agulha para injeção 13x4.5mm;</li>
+                                <li>Lidocaína 1% ou 2% (sem vasoconstritor)</li>
+                                <li>Esparadrapo e atadura;</li>
+                                <li>Implante subdérmico.</li>
+                            </ul>
+                            
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Procedimento:</h3>
+                            <ol class="list-decimal list-inside space-y-3">
+                                <li>Posicionar o braço da pessoa flexionado na altura do cotovelo, com a mão sob a cabeça (ou o mais próximo possível dela), dando preferência ao braço não dominante.</li>
+                                <li>Realizar avaliação visual do local identificando lesões prévias, processos infecciosos ou outras alterações anatômicas relevantes.</li>
+                                <li>Posicionar-se de forma que seja possível visualizar a progressão da agulha logo abaixo da pele, prevenindo inserções profundas;</li>
+                                <li>Identificar o local de inserção na face medial do braço não dominante;</li>
+                                <li>Medir 8 a 10 cm a partir do epicôndilo medial do úmero, e 3 a 5 cm abaixo do sulco entre os músculos bíceps e tríceps;</li>
+                                <li>
+                                    Se não for possível estabelecer a distância de 3 a 5 cm (por exemplo, em paciente com braços finos), o implante deve ser inserido o mais distante possível do sulco, evitando vasos sanguíneos e os nervos maiores que existem no sulco e na região próxima;
+                                    <!-- Observação movida para dentro do item 6 -->
+                                    <p class="font-semibold text-red-700 bg-red-50 p-2 rounded-md mt-2">OBS: Se o implante for inserido muito profundamente, ele pode não ser palpável e a localização e/ou a posterior remoção podem ser difíceis.</p>
+                                </li>
+                                
+                                <!-- O <li> fantasma da imagem foi removido daqui -->
+
+                                <li>Identifique o local de inserção e faça 2 marcações no local: <!-- Este agora é o item 7 -->
+                                    
+                                    <!-- Imagem movida para DENTRO do item 7 -->
+                                    <!-- Cores do placeholder alteradas para rosa -->
+                                    <img src="https://i.imgur.com/KAr8qCh.png" alt="Identificação do local de inserção" class="mx-auto rounded-lg shadow-sm w-full max-w-md my-3" onerror="this.src='https://placehold.co/500x300/fdf2f8/9d174d?text=Imagem+N%C3%A3o+Carregada';">
+                                    <p class="text-sm italic text-center mb-2">Identificação do local de inserção</p>
+
+                                    <ul class="list-disc list-inside ml-6 mt-1">
+                                        <li>1º) Marque o local de inserção.</li>
+                                        <li>2º) Marque um ponto a aproximadamente 5 cm da primeira marcação (marca guia).</li>
+                                    </ul>
+                                </li>
+                                <li>Verificar a validade do implante;</li> <!-- Item 8 -->
+                                <li>Retirar o invólucro externo (caixa);</li> <!-- Item 9 -->
+                                <li>Conferir a integridade do invólucro interno;</li> <!-- Item 10 -->
+                                <li>Separar bula e cartão do paciente para posterior preenchimento;</li> <!-- Item 11 -->
+                                <li>Lavar as mãos;</li> <!-- Item 12 -->
+                                <li>Calçar as luvas de procedimento;</li> <!-- Item 13 -->
+                                <li>Limpe o local de inserção com um antisséptico</li> <!-- Item 14 -->
+                                <li>Aplicar anestesia local utilizando com 2mL de lidocaína 1% ou 2% (sem vasoconstritor) abaixo da pele e ao longo do trajeto de inserção, por uma extensão de 4 cm.</li> <!-- Item 15 -->
+                                <li>Retirar o aplicador do blíster, mantendo a agulha e o implante estéreis (em caso de contaminação, outro implante deve ser utilizado).</li> <!-- Item 16 -->
+                                <li>Retirar a proteção da agulha, segurando na lateral do aplicador.</li> <!-- Item 17 -->
+                                <li>Esticar a pele em direção ao cotovelo e inserir o implante de maneira subdérmica, logo abaixo da pele.</li> <!-- Item 18 -->
+                                <li>Perfurar a pele com a ponta da agulha em um ângulo ligeiramente inferior a 30°, inserindo apenas o bisel da agulha sob a pele (caso a agulha seja introduzida além do bisel, puxe-a para trás).</li> <!-- Item 19 -->
+                                <li>Abaixar o aplicador para posição paralela à superfície da pele.</li> <!-- Item 20 -->
+                                <li>Tracionar a pele e empurrar a agulha cuidadosamente até que esteja completamente subdérmica.</li> <!-- Item 21 -->
+                                <li>Ainda que sinta resistência, não exercer força excessiva.</li> <!-- Item 22 -->
+                                <li>Caso a ponta da agulha perfure a pele, o aplicador deve ser puxado para trás e recolocado na posição subdérmica correta.</li> <!-- Item 23 -->
+                                <li>Puxar a alavanca roxa somente após a inserção total da agulha, sem mover a agulha ou o aplicador.</li> <!-- Item 24 -->
+                                <li>Confirmar a presença do implante no braço por palpação imediatamente após a inserção (solicite que a pessoa também realize a palpação, protegendo o orifício de entrada).</li> <!-- Item 25 -->
+                                <li>Ao palpar ambas as extremidades do implante, deve ser possível confirmar a presença do bastão de 4 cm;</li> <!-- Item 26 -->
+                                <li>Realizar o curativo no local utilizando uma gaze estéril com um curativo compressivo, a fim de minimizar hematomas.</li> <!-- Item 27 -->
+                                <li>Orientar que o curativo pode ser substituído por outro curativo menor após 24 horas, devendo ser mantido por 3 a 5 dias.</li> <!-- Item 28 -->
+                            </ol>
+                            
+                            <p class="font-medium">Observações:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Durante todo o procedimento de inserção, o profissional deve conseguir ver a agulha logo abaixo da pele;</li>
+                                <li>Se a agulha não tiver sido totalmente inserida ou se o aplicador for movimentado quando a alavanca roxa for acionada, uma parte do implante pode ficar exteriorizada, caso isso aconteça, não empurre o implante, remova e descarte esse implante.</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Orientações após a inserção</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Orientar que a usuária evite atividades traumáticas ou com peso no membro during 24 horas; e que é possível o aparecimento de equimose local após o procedimento;</li>
+                                <li>Manter o curativo seco; para o banho, proteger o local com filme PVC ou sacola plástica limpa;</li>
+                                <li>Orientar prática sexual protegida during os 7 (sete) dias após a inserção para os casos em que a inserção ocorreu após o 7º dia do ciclo menstrual;</li>
+                                <li>Informar que hematomas locais costumam ter resolução espontânea em 7(sete) a 14 (quatorze dias), podendo ser usada compressa fria no local para alívio.</li>
+                                <li>Orientar uso de preservativo para todas as pessoas e reforçar que o implante não protege contra Infecções Sexualmente Transmissíveis (IST).</li>
+                            </ul>
+                            
+                            <p>Após o procedimento, registre no prontuário eletrônico contendo as informações: braço onde foi realizada a inserção e os dados de lote e validade do implante inserido.</p>
+                            <p>CID sugerido:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Z300 - aconselhamento geral sobre contracepção</li>
+                                <li>Z308 - outro procedimento anticoncepcional</li>
+                                <li>Z309 - procedimento anticoncepcional não especificado</li>
+                            </ul>
+                            <p>O profissional deve entregar à usuária o cartão, assinado e carimbado, contendo:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Data da Inserção</li>
+                                <li>Data prevista para a remoção</li>
+                                <li>Número do lote</li>
+                                <li>Identificação do braço</li>
+                            </ul>
+                            <p>A etiqueta do dispositivo, com o número do lote, deve ser colada no termo assinado pela paciente e arquivada na unidade de saúde.</p>
+                            <p>O cuidado integral e longitudinal é fundamental para promover a adesão e prevenir a retirada precoce do implante.</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Realização de testes para ISTs</li>
+                                <li>Adequação do exame citológico (25 - 64 anos)</li>
+                                <li>Adequação do rastreio de neoplasias de mama</li>
+                                <li>Acompanhamento de comorbidades previamente diagnosticadas</li>
+                                <li>Avaliação de vulnerabilidades e acesso ao programa Dignidade Menstrual</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sessão 8: Manejo de Intercorrências -->
+                <div id="sessao8" class="accordion-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-left">
+                        <h2 class="text-2xl font-semibold text-pink-800">Sessão 8 - Manejo de Intercorrências</h2>
+                        <svg class="accordion-arrow w-6 h-6 text-pink-600 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="p-6 border-t border-gray-200 text-gray-700 leading-relaxed space-y-4 break-words">
+                            <h3 class="text-xl font-semibold text-gray-800">Gravidez em uso do dispositivo</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>O implante deve ser retirado quanto antes por profissional habilitado.</li>
+                                <li>Importante que a usuária seja orientada que o etonogestrel NÃO é uma medicação teratogênica, ou seja, não causa malformações no feto caso ocorra gravidez inadvertida during o uso do método.</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Fratura do implante</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Pode haver mudança do padrão de liberação hormonal, e do sangramento</li>
+                                <li>Discutir manutenção ou retirada do implante com a usuária</li>
+                                <li>Possivelmente não há redução de eficácia</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Infecção local após inserção</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Avaliar presença de sinais flogísticos (eritema, calor local, dor e secreção purulenta no sítio da implantação)</li>
+                                <li>Orientar medidas de higiene local e avaliar a necessidade de antibioticoterapia para infecções de pele.</li>
+                                <li>Manter seguimento próximo e reavaliações constantes, atentando para sinais que podem indicar necessidade de drenagem.</li>
+                                <li>Caso apresente sintomas sistêmicos ou ausência de resposta, proceder à retirada do dispositivo e inserção no braço contralateral.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sessão 9: Procedimento de Retirada -->
+                <div id="sessao9" class="accordion-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-left">
+                        <h2 class="text-2xl font-semibold text-pink-800">Sessão 9 - Procedimento de Retirada</h2>
+                        <svg class="accordion-arrow w-6 h-6 text-pink-600 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="p-6 border-t border-gray-200 text-gray-700 leading-relaxed space-y-4 break-words">
+                            <p><strong>Assista ao vídeo de retirada:</strong></p>
+                            <!-- Bloco do vídeo atualizado -->
+                            <div class="aspect-video w-full max-w-3xl mx-auto mb-6 rounded-lg overflow-hidden shadow">
+                                <iframe class="w-full h-full" src="https://drive.google.com/file/d/1zVSQsjDt0QGaCwRSu5yUt1GVWXJAmpJe/preview" title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+
+                            <p>O implante deve ser retirado após três anos de uso do método ou a qualquer momento em que a usuária apresente esse desejo, ainda que anterior ao limite da duração.</p>
+                            <p>Diante de sintomas negativos passíveis de manejo, informar à pessoa as possibilidades de tratamento e deixar que ela decida de maneira consciente e informada sobre a continuidade ou não do método.</p>
+                            <p>Deve ser possível determinar a localização exata do implante pela palpação.</p>
+                            <p>Caso o implante não esteja palpável logo abaixo da pele, é necessária a realização de exame de imagem para identificar a localização correta - o implante é radiopaco, a radiografia simples é a primeira escolha para essa avaliação.</p>
+                            <p>A abordagem de retirada dos implantes profundos deve ser realizada em serviços da Atenção Especializada, onde estão disponíveis especialistas em cirurgia geral e/ou cirurgia vascular.</p>
+
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Materiais necessários para a retirada:</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Luvas de procedimento ou estéreis</li>
+                                <li>Antisséptico (clorexidina alcoólica 0,5%, álcool 70% ou iodopovidona tópico 10%)</li>
+                                <li>Gaze estéril;</li>
+                                <li>Seringa de 3ml;</li>
+                                <li>Agulha para aspiração 40x12mm;</li>
+                                <li>Agulha para injeção 13x4.5mm;</li>
+                                <li>Lidocaína 1% ou 2%, sem vasoconstritor;</li>
+                                <li>Pinça Halstead (Mosquito) ou Pinça Kelly</li>
+                                <li>Lâmina de bisturi N.o 15 ou 11 (preferencialmente)</li>
+                                <li>Esparadrapo</li>
+                            </ul>
+                            <p><strong>OBS:</strong> O uso de material de sutura, como porta-agulha e fio de nylon 4.0, é opcional e indicado apenas quando houver necessidade de fechamento do ponto de inserção após a remoção do implante.</p>
+
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Procedimento:</h3>
+                            <ol class="list-decimal list-inside space-y-3">
+                                <li>O implante deve ser localizado por palpação e ter sua extremidade proximal (em direção ao ombro) comprimida para que uma saliência fique visível na pele, indicando a extremidade distal (mais próxima ao cotovelo).</li>
+                                <li>Lavar as mãos</li>
+                                <li>Limpar a extremidade distal identificada e realizar antissepsia local</li>
+                                <li>Realizar anestesia com 0,5 a 1 ml de lidocaína 1% ou 2% (sem vasoconstritor) no local escolhido para fazer a incisão.</li>
+                                <li>Certificar-se de injetar o anestésico abaixo do implante, de modo a mantê-lo próximo à superfície da pele.</li>
+                                <li>Empurrar a extremidade proximal do implante para estabilizá-lo e realizar uma incisão longitudinal de 2 mm em direção ao cotovelo, a partir da ponta distal do implante, tendo cuidado para não seccionar sua ponta.</li>
+                                <li>Empurrar suavemente o implante em direção à incisão até que a extremidade seja visível.</li>
+                                <li>Segure o implante com uma pinça (Halstead ou Kelly) e proceda à sua remoção</li>
+                                <li>Empurrar a extremidade proximal do implante para estabilizá-lo e realizar uma incisão longitudinal de 2 mm em direção ao cotovelo, a partir da ponta distal do implante, tendo cuidado para não seccionar sua ponta.</li>
+                                <li>Empurrar suavemente o implante em direção à incisão até que a extremidade seja visível.</li>
+                                <li>Segure o implante com uma pinça (Halstead ou Kelly) e proceda à sua remoção.</li>
+                                <li>Se houver fibrose, remover o tecido por dissecção romba.</li>
+                                <li>Caso a extremidade do implante ainda não se exteriorize, realize uma incisão com bisturi na cápsula e então remova o implante com uma pinça do tipo Halstead ou Kelly.</li>
+                                <li>A depender do tamanho da incisão, realizar sutura simples no local e orientar a usuária quanto à retirada dos pontos em 7 a 10 dias.</li>
+                                <li>Realizar um curativo estéril para fechamento de ferida, e aplicar uma gaze estéril com uma faixa compressiva para minimizar a formação de equimose.</li>
+                                <li>Orientar a usuária que ela poderá remover a faixa em 4 a 6 horas e o curativo de fechamento de ferida após 3 a 5 dias.</li>
+                            </ol>
+                            <p><strong>OBS:</strong> Em caso de dificuldade de retirada: Não utrapassar 30min de procedimento, Retorno em 4-6 semanas para tentar nova retirada, Encaminhamento a especialista.</p>
+
+                            <h3 class="text-xl font-semibold text-gray-800 pt-2">Troca de implante</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>O novo implante pode ser inserido no mesmo braço e, frequentemente, através da mesma incisão por onde o implante anterior foi retirado.</li>
+                                <li>Caso a mesma incisão seja usada para inserir um novo implante:
+                                    <ul class="list-circle list-inside ml-6">
+                                        <li>Anestesiar o local da inserção com 2 mL de lidocaína (1%), aplicada logo abaixo da pele, iniciando no local da incisão de retirada ao longo do trajeto de inserção</li>
+                                        <li>Durante a substituição, a inserção completa da agulha também é muito importante.</li>
+                                    </ul>
+                                </li>
+                                <li>Fechar a incisão com um curativo, de modo a aproximar as bordas da incisão</li>
+                                <li>Aplicar curativo com gaze estéril para evitar lesões.</li>
+                                <li>Manter o curativo no local por pelo menos 24 horas para permitir a cicatrização da incisão da retirada.</li>
+                                <li>Quando o local de inserção anterior não for apropriado, é possível realizar a inserção do novo implante no braço contralateral, respeitando as mesmas técnicas de inserção utilizadas initially.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sessão 10: Leitura Complementar e Referências -->
+                <div id="sessao10" class="accordion-item bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="accordion-button w-full flex justify-between items-center p-6 text-left">
+                        <h2 class="text-2xl font-semibold text-pink-800">Sessão 10 - Leitura Complementar e Referências</h2>
+                        <svg class="accordion-arrow w-6 h-6 text-pink-600 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="p-6 border-t border-gray-200 text-gray-700 leading-relaxed space-y-2 break-words">
+                            <!-- Cor dos links alterada para rosa -->
+                            <p>1. Philip D Darney Contraception: Etonogestrel implant UpToDate 2025 <a href="https://www.uptodate.com/contents/contraception-etonogestrel-implant?search=implanon&source=search_result&selectedTitle=2~47&usage_type=default&display_rank=1#H1" class="text-pink-600 hover:underline" target="_blank" rel="noopener noreferrer">https://www.uptodate.com/...</a></p>
+                            <p>2. DynaMed. Dispositivos contraceptivos implantáveis. EBSCO Information Services. <a href="https://www.dynamed.com/device/implantable-contraceptive-devices" class="text-pink-600 hover:underline" target="_blank" rel="noopener noreferrer">https://www.dynamed.com/...</a></p>
+                            <p>3. Machado RB, Monteiro IM, Magalhães J, Guazzelli CA, Brito MB, Lubianca JN, et al. Aspectos atuais dos contraceptivos reversíveis de longa ação. In: Contracepção reversível de longa ação. São Paulo: Federação Brasileira das Associações de Ginecologia e Obstetrícia (FEBRASGO): 2022. [Série Orientações e Recomendações FEBRASGO, no. 1/Comissão Nacional de Anticoncepção].</p>
+                            
+                            <p class="pt-4">Para maiores informações, consulte:</p>
+                            <!-- Wrapper for buttons -->
+                            <div class="flex flex-wrap gap-4 mt-2">
+                                <!-- Cor dos botões alterada para rosa -->
+                                <a href="https://iris.who.int/server/api/core/bitstreams/9f048e30-0d14-4187-b167-9c24b9102092/content" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-pink-700 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                    Critérios de Elegibilidade da OMS
+                                </a>
+                                
+                                <!-- Botão Dúvidas Frequentes - Cor alterada para rosa -->
+                                <a href="https://docs.google.com/document/d/1VItqM4Ep5EaoNqbH-wlowyMXz9z_jCi1/edit?usp=sharing&ouid=110410574929128285229&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-pink-700 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                    Dúvidas Frequentes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- Fim do container da sanfona -->
+
+            <!-- Teste de Aproveitamento -->
+            <div id="teste-aproveitamento" class="bg-white rounded-lg shadow-md overflow-hidden p-6 md:p-8 mt-6">
+                <!-- Cor do título alterada para rosa -->
+                <h2 class="text-2xl font-semibold text-pink-800 mb-4">Teste de Aproveitamento</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Caso tenha feito a sua inscrição para o curso, para obter seu certificado faça o Teste de Aproveitamento!
+                </p>
+                <!-- Cor do botão alterada para rosa -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVD_VKu_arJrCxvPmsFgXqOgs1IRCcSjKWoDWJ3enWBKhnNQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-pink-700 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Fazer o Teste de Aproveitamento
+                </a>
+            </div>
+
+        </main>
+    </div>
+    
+    <!-- Modal de Informações do Curso Livre -->
+    <div id="infoModal" class="modal fixed inset-0 z-50 items-center justify-center p-4 bg-black bg-opacity-60 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-2xl rounded-xl shadow-2xl p-6 md:p-8 transform transition-all scale-95 opacity-0" id="modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <!-- Cor do título do modal alterada para rosa -->
+                <h3 class="text-2xl font-bold text-pink-900">Instruções do Curso Livre</h3>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="text-slate-700">
+                <ol class="list-decimal list-inside space-y-3 text-base">
+                    <li>Este Curso Livre é voltado para profissionais de enfermagem e será certificado com a carga horária de 2 horas/aula.</li>
+                    <!-- Cor do link no modal alterada para rosa -->
+                    <li>Você deve clicar no botão disponível no fim desta página (ou <a href="https://espfloripa.github.io/cursoslivres/" target="_blank" rel="noopener noreferrer" class="text-pink-600 hover:underline font-semibold">aqui</a>) e preencher todos os campos para se inscrever no curso no mês corrente.</li>
+                    <li>Após a inscrição realizada, você tem até o último dia do mês para responder o teste de aproveitamento disponibilizado no botão no fim da página (não confundir com o Quiz!).</li>
+                    <li>Ao responder o teste de aproveitamento coloque o nome completo e CPF conforme você colocou no link de inscrição.</li>
+                    <li>A nota de corte para aprovação é de 80%.</li>
+                    <li>O teste de aproveitamento só permite uma resposta por participante, caso você não seja aprovado poderá repetir o curso no mês seguinte.</li>
+                    <li>O certificado será disponibilizado até o último dia útil do mês seguinte à finalização do curso.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.getElementById('menu-toggle');
+            const mainContent = document.getElementById('main-content');
+            
+            // --- Lógica do Menu Mobile ---
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+            
+            // Fecha o menu mobile ao clicar no conteúdo principal
+            mainContent.addEventListener('click', () => {
+                sidebar.classList.add('-translate-x-full');
+            });
+
+            // --- Lógica da Sanfona (Accordion) ---
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            const accordionContainer = document.getElementById('accordion-container');
+
+            accordionContainer.addEventListener('click', (e) => {
+                const button = e.target.closest('.accordion-button');
+                if (!button) return;
+
+                const item = button.closest('.accordion-item');
+                const panel = button.nextElementSibling;
+
+                // Fecha todos os outros painéis
+                document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.querySelector('.accordion-panel').classList.remove('open');
+                        otherItem.querySelector('.accordion-button').classList.remove('open');
+                    }
+                });
+
+                // Abre ou fecha o painel clicado
+                panel.classList.toggle('open');
+                button.classList.toggle('open');
+            });
+
+            // --- Lógica de Navegação e Scroll Spy ---
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.accordion-item, #teste-aproveitamento'); // Seletor atualizado
+
+            // Função para abrir a sanfona de uma seção específica
+            function openAccordionSection(sectionId) {
+                const targetSection = document.getElementById(sectionId);
+                if (!targetSection) return;
+
+                const button = targetSection.querySelector('.accordion-button');
+                const panel = targetSection.querySelector('.accordion-panel');
+
+                // Fecha todos os outros painéis
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    if (item.id !== sectionId) {
+                        const otherPanel = item.querySelector('.accordion-panel');
+                        const otherButton = item.querySelector('.accordion-button');
+                        if (otherPanel) otherPanel.classList.remove('open');
+                        if (otherButton) otherButton.classList.remove('open');
+                    }
+                });
+
+                // Abre ou fecha o painel clicado, SE ELE EXISTIR
+                if (button && panel) {
+                    if (!panel.classList.contains('open')) {
+                        panel.classList.add('open');
+                        button.classList.add('open');
+                    }
+                }
+            }
+
+            // Ativa o link de navegação ao clicar
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(sectionId);
+
+                    if (targetSection) {
+                        // 1. Abre a sanfona
+                        openAccordionSection(sectionId);
+                        
+                        // 2. Rola até a seção
+                        // O offset é para compensar a altura do menu/header se fosse fixo
+                        // Como não é, podemos rolar direto ou com um pequeno offset
+                        const offsetTop = targetSection.offsetTop - 20; // 20px de espaço
+                        window.scrollTo({
+                            top: offsetTop
+                        });
+
+                        // 3. Fecha o menu mobile se estiver aberto
+                        sidebar.classList.add('-translate-x-full');
+                    }
+                });
+            });
+
+            // Atualiza o link ativo no menu (Scroll Spy)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.remove('nav-active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('nav-active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -60% 0px' }); // Ativa quando a seção está no meio da tela
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // --- Lógica do Modal ---
+            const openModalBtn = document.getElementById('openModalBtn');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const infoModal = document.getElementById('infoModal');
+            const modalContent = document.getElementById('modal-content');
+
+            function openModal() {
+                infoModal.classList.add('open');
+                // Animação de entrada
+                setTimeout(() => {
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                    modalContent.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            }
+
+            function closeModal() {
+                // Animação de saída
+                modalContent.classList.remove('scale-100', 'opacity-100');
+                modalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    infoModal.classList.remove('open');
+                }, 200); // Aguarda a transição de 200ms
+            }
+
+            openModalBtn.addEventListener('click', openModal);
+            closeModalBtn.addEventListener('click', closeModal);
+            
+            // Fecha o modal ao clicar fora do conteúdo (no backdrop)
+            infoModal.addEventListener('click', (e) => {
+                if (e.target === infoModal) {
+                    closeModal();
+                }
+            });
+            
+            // --- Lógica do Flip Card ---
+            const flipCardContainer = document.getElementById('flip-card-container');
+            const flipCardInner = document.getElementById('flip-card-inner');
+
+            if (flipCardContainer && flipCardInner) {
+                flipCardContainer.addEventListener('click', () => {
+                    flipCardInner.classList.toggle('is-flipped');
+                });
+            }
+
+            // Abre a primeira sessão por padrão ao carregar a página
+            const firstSection = document.querySelector('.accordion-item');
+            if (firstSection) {
+                firstSection.querySelector('.accordion-button').classList.add('open');
+                firstSection.querySelector('.accordion-panel').classList.add('open');
+            }
+
+        });
+    </script>
+</body>
+</html>
